@@ -3,7 +3,7 @@
 sudo apt-get -y update
 sudo apt-get -y install gnupg vim net-tools pass
 sudo apt-get -y install ansible python3 python3-venv
-sudo apt-get -y install jq yq docker.io helm
+sudo apt-get -y install jq yq docker.io podman helm
 
 wget https://get.helm.sh/helm-v3.17.1-linux-amd64.tar.gz -O /tmp/helm.tar.gz
 tar xvf /tmp/helm.tar.gz -C /tmp/
