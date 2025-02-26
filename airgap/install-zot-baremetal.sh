@@ -10,6 +10,7 @@ sudo chmod +x /usr/bin/zot
 sudo chown root:root /usr/bin/zot
 
 # Step 2
+#
 sudo mkdir -p /etc/zot
 sudo tee /etc/zot/config.json > /dev/null <<EOF
 {
@@ -29,7 +30,7 @@ sudo tee /etc/zot/config.json > /dev/null <<EOF
         }
     },
     "storage": {
-        "rootDirectory": "/tmp/zot"
+        "rootDirectory": "/data/zot"
     }
 }
 EOF
