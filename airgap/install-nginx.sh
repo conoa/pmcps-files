@@ -5,6 +5,8 @@ server {
     listen 80;
     server_name localhost;
 
+    access_log /var/log/nginx/access.log;
+
     location /ca.crt {
         alias /opt/certs/ca/ca.crt;
     }
