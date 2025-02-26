@@ -15,3 +15,4 @@ cd /opt
 sudo /opt/bin/gen-ca.sh generate-ca
 sudo /opt/bin/gen-ca.sh issue-cert localhost localhost
 openssl x509 -in /opt/certs/localhost.crt -text -noout
+ls -l /opt/certs
