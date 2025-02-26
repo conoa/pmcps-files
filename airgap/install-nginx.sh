@@ -1,16 +1,5 @@
 #!/bin/bash
 
-./install-deps.sh
-
-cd /opt/certs
-
-/opt/bin/gen-ca.sh generate-ca
-
-/opt/bin/gen-ca.sh issue-cert localhost localhost
-
-openssl x509 -in certs/localhost.crt -text -textonly
-cat /opt/certs/certs/localhost.crt
-
 sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
 server {
     listen 80;
@@ -30,8 +19,8 @@ server {
     listen 443 ssl;
     server_name localhost;
 
-    ssl_certificate /opt/certs/certs/localhost.crt;
-    ssl_certificate_key /opt/certs/certs/localhost.key;
+    ssl_certificate /opt/certs/localhost.crt;
+    ssl_certificate_key /opt/certs/localhost.key;
 
     location /dist/ {
         root /var/www/html;
