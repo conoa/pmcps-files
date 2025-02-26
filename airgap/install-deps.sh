@@ -2,7 +2,7 @@
 
 # Install nginx
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get -y install nginx podman
 
 # Setup CA tool and directory
 sudo mkdir -p /opt/bin
