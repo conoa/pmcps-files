@@ -26,3 +26,10 @@ sudo chown root:root /usr/bin/zot
 
 # Install dist directory
 sudo mkdir -p /var/www/html/dist
+
+# Check status zot
+sudo systemctl status zot
+
+# Check status nginx
+sudo systemctl status nginx
+
