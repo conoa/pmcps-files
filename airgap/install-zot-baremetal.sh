@@ -83,3 +83,5 @@ if [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/v2/)" -eq 2
 else
     echo "Zot is not running"
 fi
+
+ls -l /usr/bin/zot
