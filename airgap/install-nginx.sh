@@ -64,3 +64,6 @@ if [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost)" -eq 200 ]; the
 else
     echo "Nginx is not running"
 fi
+
+curl localhost/ca.crt
+
