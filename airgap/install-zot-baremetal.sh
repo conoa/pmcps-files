@@ -86,3 +86,5 @@ else
 fi
 
 ls -l /usr/bin/zot
+
+curl -k http://localhost:8080
