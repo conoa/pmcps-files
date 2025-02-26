@@ -1,7 +1,8 @@
 #!/bin/bash
-apt-get update
 
-apt-get -y install \
+sudo apt-get update
+
+sudo apt-get -y install \
     curl \
     dnsutils \
     e2fsprogs \
@@ -17,5 +18,6 @@ apt-get -y install \
     parted \
     rsync \
     strace \
+    tree \
     vim \
     wget
