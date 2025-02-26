@@ -24,3 +24,5 @@ sudo mkdir -p /opt/bin
 sudo chmod +x /usr/bin/zot
 sudo chown root:root /usr/bin/zot
 
+# Install dist directory
+sudo mkdir -p /var/www/html/dist
