@@ -10,7 +10,7 @@ sudo cp gen-ca.sh /opt/bin/
 sudo chmod +x /opt/bin/gen-ca.sh
 sudo mkdir -p /opt/certs
 
-# Verify it
+# Verify it, replace SAN with correct one
 cd /opt
 sudo /opt/bin/gen-ca.sh generate-ca
 sudo /opt/bin/gen-ca.sh issue-cert localhost localhost
