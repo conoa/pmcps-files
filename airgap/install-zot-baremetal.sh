@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Host commands
-wget https://github.com/project-zot/zot/releases/download/v2.1.2/zot-linux-amd64 -O /tmp/zot
-docker cp /tmp/zot airgap:/usr/bin/zot
-docker exec -it airgap mkdir -p /opt/bin
-
-make ssh-airgap
-sudo chmod +x /usr/bin/zot
-sudo chown root:root /usr/bin/zot
 
 sudo apt update
 sudo apt-get -y install apache2-utils wget curl unzip wget jq
