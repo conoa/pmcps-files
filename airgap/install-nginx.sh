@@ -1,7 +1,6 @@
 #!/bin/bash
 
 sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
-server {
     listen 80;
     server_name localhost;
 
