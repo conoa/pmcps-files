@@ -1,15 +1,28 @@
 #!/bin/bash
 
-./install-deps.sh
+docker cp ~/scripts/gen-ca.sh airgap:/opt/bin/gen-ca.sh
 
-cd /opt/certs
+# Setup CA tool and directory
+docker exec -it airgap chmod +x /opt/bin/gen-ca.sh
+docker exec -it airgap mkdir -p /opt/certs
+docker exec -w /opt/certs/ca -it airgap pwd
+docker exec -w /opt/certs -it airgap /opt/bin/gen-ca.sh generate-ca
+docker exec -w /opt/certs -it airgap cat ca/ca.crt
+docker cp ./get-ca.sh airgap:/usr/bin/get-ca.sh
+docker exec -it airgap chmod +x /usr/bin/get-ca.sh
 
-/opt/bin/gen-ca.sh generate-ca
+docker exec -w /opt/certs -it airgap /opt/bin/gen-ca.sh generate-ca
+docker exec -w /opt/certs -it airgap /opt/bin/gen-ca.sh issue-cert localhost localhost
+docker exec -w /opt/certs -it airgap ls /opt/certs
+docker exec -w /opt/certs -it airgap cat localhost/localhost.crt
 
-/opt/bin/gen-ca.sh issue-cert localhost localhost
+docker exec -w /opt/certs -it airgap openssl x509 -in certs/localhost.crt -text -textonly
+docker exec -w /opt/certs -it airgap ls /opt/certs/certs/localhost.crt
 
-openssl x509 -in certs/localhost.crt -text -textonly
-cat /opt/certs/certs/localhost.crt
+# Install nginx
+sudo apt update
+sudo apt -y install nginx
+
 
 sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
 server {
