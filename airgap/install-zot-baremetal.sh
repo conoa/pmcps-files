@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Host commands
-wget https://github.com/project-zot/zot/releases/download/v2.1.2/zot-linux-amd64 -O zot
-docker cp zot airgap:/usr/bin/zot
+wget https://github.com/project-zot/zot/releases/download/v2.1.2/zot-linux-amd64 -O /tmp/zot
+docker cp /tmp/zot airgap:/usr/bin/zot
 docker exec -it airgap mkdir -p /opt/bin
 
 make ssh-airgap
