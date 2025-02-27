@@ -2,9 +2,9 @@ services:
 
   airgap:
     build: .
-    image: airgap:0.1
-    hostname: airgap
-    container_name: airgap
+    image: airgap-files:latest
+    hostname: airgap-files
+    container_name: airgap-files
     environment:
       - container=docker
     privileged: true
@@ -14,18 +14,19 @@ services:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
       - /tmp:/airgap
+      - .:/host
     stdin_open: true
     ports:
-      - 2222:22
+      - 2221:22
     tty: true
     networks:
       local:
-        ipv4_address: 10.5.0.10
+        ipv4_address: 10.1.0.10
 
 networks:
   local:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.5.0.0/16
-          gateway: 10.5.0.1
+        - subnet: 10.1.0.0/16
+          gateway: 10.1.0.1
