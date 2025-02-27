@@ -5,7 +5,6 @@ sudo apt-get update
 sudo apt-get -y install \
     curl \
     dnsutils \
-    e2fsprogs \
     fdisk \
     git \
     htop \
@@ -16,6 +15,7 @@ sudo apt-get -y install \
     net-tools \
     openssh-client \
     parted \
+    pass \
     rsync \
     strace \
     tree \
